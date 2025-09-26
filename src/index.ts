@@ -43,6 +43,10 @@ dotenv.config();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 const app = express();
 
+
+app.get('/',()=>{
+  return "Hello World"
+})
 // Important: route /api/webhook needs raw body for signature verification.
 // We'll mount the webhook router separately with express.raw middleware.
 app.get("/api/health", (_req: Request, res: Response) => res.json({ ok: true }));
