@@ -44,8 +44,8 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 const app = express();
 
 
-app.get('/',()=>{
-  return "Hello World"
+app.get('/',(req,res)=>{
+  res.send('Hello World!')
 })
 // Important: route /api/webhook needs raw body for signature verification.
 // We'll mount the webhook router separately with express.raw middleware.
@@ -60,3 +60,5 @@ app.use(express.json());
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+// export default app;
